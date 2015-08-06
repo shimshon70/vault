@@ -66,7 +66,7 @@ func newS3Backend(conf map[string]string) (Backend, error) {
 
 	s3conn := s3.New(&aws.Config{
 		Credentials: creds,
-		Region:      region,
+		Region:      &region,
 	})
 
 	_, err := s3conn.HeadBucket(&s3.HeadBucketInput{Bucket: &bucket})
